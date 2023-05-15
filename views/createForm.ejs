@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="es">
+<!-- Head -->
+<%- include('partials/head', {title: 'Crear'}) %>
+<body>
+    <h1>Leyes CABA</h1>
+    <!-- header -->
+    <%- include('partials/headerNavbar') %>
+    <!-- /header -->
+
+    <div class="container form-wrapper">
+        <div class="row">
+            <div class="col-12">
+                <h2 class="form-title">Formulario de carga de leyes</h2>
+            </div>
+        </div>
+        <div class="col-12">
+            <form action="/leyes/create" method="post" enctype="multipart/form-data">
+                <div class="row leyes-detail">
+                    <div class="col-12 col-md-6">
+                        <label for="number" class="form-label">Número:</label>
+						<input type="text" id="number" name="number" class="form-input">
+                    </div>
+                    <div class="col-12 col-md-6">
+                        <label for="year" class="form-label">Año:</label>
+						<input type="text" id="year" name="year" class="form-input">
+                    </div>
+                    <div class="col-12 col-md-6">
+                        <label for="type" class="form-label">Tipo de Norma:</label>
+                        <select name="type" id="type" class="form-input">
+                            <option value="">Elegir opción</option>
+                            <option value="todos">Todos</option>
+                            <option value="ley-ciudad">Ley Ciudad</option>
+                            <option value="ordenanza">Ordenanza</option>
+                        </select>
+                    </div>
+                    <div class="col-12 col-md-6">
+                        <label for="status" class="form-label">Estado:</label>
+                        <select name="status" id="status" class="form-input">
+                            <option value="">Elegir opción</option>
+                            <option value="vigente">Vigente</option>
+                            <option value="no-vigente">No Vigente</option>
+                        </select>
+                    </div>
+                    <div class="col-12">
+                        <label for="norm">Adjuntar Norma</label>
+                        <input type="file" name="norm">
+                    </div>
+                    <div class="col-12">
+                        <button type="submit" class="form-button">Guardar</button>
+                        <button type="reset" class="form-button">Limpiar</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+    </div>
+
+    <!-- footer -->
+    <%- include('partials/footer') %>
+    <!-- /footer -->
+</body>
+</html>

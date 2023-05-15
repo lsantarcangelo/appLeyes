@@ -1,0 +1,18 @@
+[
+ {
+  "id": 1,
+  "type": "ley-ciudad",
+  "number": "1217",
+  "year": "2003",
+  "status": "vigente",
+  "norm": "Ley Ciudad-12171683364703390.pdf"
+ },
+ {
+  "id": 2,
+  "type": "ley-ciudad",
+  "number": "451",
+  "year": "2015",
+  "status": "vigente",
+  "norm": "Ley Ciudad-4511684169445136 - .pdf"
+ }
+]

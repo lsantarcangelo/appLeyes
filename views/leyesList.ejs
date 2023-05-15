@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="es">
+<!-- Head -->
+<%- include('partials/head', {title: 'Listado'}) %>
+	<body>
+		<h1>Leyes CABA</h1>
+		<!-- header -->
+		<%- include('partials/headerNavbar') %>
+		<!-- /header -->
+		<% leyes.forEach(element => { %>
+			<ul>
+				<li>Nombre: <%= element.type %> - <%= element.number %> - <%= element.year %></li>
+				<a href="/leyes/detail/<%= element.id %>">Ver Detalle</a>
+			</ul>
+		<% }) %>
+		<!-- footer -->
+		<%- include('partials/footer') %>
+		<!-- /footer -->
+  </body>
+</html>
