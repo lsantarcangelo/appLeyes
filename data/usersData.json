@@ -1,0 +1,16 @@
+[
+ {
+  "id": 1,
+  "firstName": "juan",
+  "lastName": "perez",
+  "email": "lsantarcangelo@yahoo.com.ar",
+  "password": "abc123"
+ },
+ {
+  "id": 2,
+  "firstName": "pedro",
+  "lastName": "gomez",
+  "email": "lsantarcangelo@yahoo.com.ar",
+  "password": "abc123"
+ }
+]

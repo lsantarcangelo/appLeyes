@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="es">
+<!-- Head -->
+<%- include('partials/head', {title: 'Register'}) %>
+<body>
+    <h1>Leyes CABA</h1>
+    <!-- header -->
+    <%- include('partials/headerNavbar') %>
+    <!-- /header -->
+
+    <div class="container form-wrapper">
+        <div class="row">
+            <div class="col-12">
+                <h2 class="form-title">Generar una cuenta</h2>
+            </div>
+        </div>
+        <div class="col-12">
+            <form action="/users/register" method="POST">
+                <div class="row leyes-detail">
+                    <div class="col-12 col-md-6">
+                        <label for="firstName" class="form-label">Nombre:</label>
+						<input type="text" id="firstName" name="firstName" class="form-input">
+                    </div>
+                    <div class="col-12 col-md-6">
+                        <label for="lastName" class="form-label">Apellido:</label>
+						<input type="text" id="lastName" name="lastName" class="form-input">
+                    </div>
+                    <!--  <div class="col-12 col-md-6">
+                        <label for="avatar" class="form-label">Imagen de Perfil:</label>
+                        <input type="file" id="avatar" name="avatar">
+                    </div> -->
+                    <div class="col-12 col-md-6">
+                        <label for="email" class="form-label">Email:</label>
+						<input type="text" id="email" name="email" class="form-input">
+                    </div>
+                    <div class="col-12 col-md-6">
+                        <label for="password" class="form-label">Contraseña:</label>
+						<input type="text" id="password" name="password" class="form-input">
+                    </div>
+                    <div class="col-12">
+                        <button type="submit" class="form-button">Guardar</button>
+                        <button type="reset" class="form-button">Limpiar</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+    </div>
+
+    <!-- footer -->
+    <%- include('partials/footer') %>
+    <!-- /footer -->
+</body>
+</html>

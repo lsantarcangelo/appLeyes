@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="es">
+<!-- Head -->
+<%- include('partials/head', {title: 'Login'}) %>
+<body>
+    <h1>Leyes CABA</h1>
+    <!-- header -->
+    <%- include('partials/headerNavbar') %>
+    <!-- /header -->
+
+    <div class="container form-wrapper">
+        <div class="row">
+            <div class="col-12">
+                <h2 class="form-title">Ingresar al Sitio</h2>
+            </div>
+        </div>
+        <div class="col-12">
+            <form action="/users/login" method="POST">
+                <div class="row leyes-detail">
+                    <div class="col-12 col-md-6">
+                        <label for="email" class="form-label">Email:</label>
+						<input type="text" id="email" name="email" class="form-input">
+                    </div>
+                    <div class="col-12 col-md-6">
+                        <label for="password" class="form-label">Contraseña:</label>
+						<input type="text" id="password" name="password" class="form-input">
+                    </div>
+                    <div class="col-12">
+                        <button type="submit" class="form-button">Continuar</button>
+                        <button type="reset" class="form-button">Limpiar</button>
+                    </div>
+                    <div class="signup_link">
+                        No posee una cuenta? <a href="/users/register">Crear una cuenta</a>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+    </div>
+
+    <!-- footer -->
+    <%- include('partials/footer') %>
+    <!-- /footer -->
+</body>
+</html>
