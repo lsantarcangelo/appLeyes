@@ -1,16 +1,9 @@
 [
  {
-  "id": 1,
+  "id": 4,
   "firstName": "juan",
-  "lastName": "perez",
-  "email": "lsantarcangelo@yahoo.com.ar",
-  "password": "abc123"
- },
- {
-  "id": 2,
-  "firstName": "pedro",
   "lastName": "gomez",
-  "email": "lsantarcangelo@yahoo.com.ar",
-  "password": "abc123"
+  "email": "juan.gomez@gmail.com",
+  "password": "$2a$10$7i9IU7raX5IkgVC9Ca4dZuJI0EgRJX.ZUtgzuJZRMJcW7ud0FbXIG"
  }
 ]

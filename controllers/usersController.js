@@ -3,7 +3,13 @@ const path = require('path');
 const usersPath = path.join(__dirname, '../data/usersData.json');
 const usersJson = fs.readFileSync(usersPath, 'utf-8');
 const users = (usersJson != "") ? JSON.parse(usersJson) : [];
+const bcryptjs = require('bcryptjs');
 let loggedUser;
+let checkUser = function (field, text) {
+    let check = users.find(user => user[field] == text);
+    return check;
+}
+
 
 const usersController = {
     login: function(req, res) {
@@ -11,8 +17,8 @@ const usersController = {
     },
 
     processLogin: function(req, res) {
-        for (let i = 0; users.length-1; i++) {
-            if (users[i].email == req.body.email) {
+        for (let i = 0; i< users.length; i++) {
+            if (users[i].email == req.body.email && bcryptjs.compareSync(req.body.password, users[i].password)) {
                 loggedUser = users[i];
                 break;
             }
@@ -31,16 +37,19 @@ const usersController = {
     },
 
     processRegister: function(req, res){
+        if(checkUser('email', req.body.email)){
+            return res.send('Ya hay otro usuario registrado con dicho mail')
+        }
         let newUser = {
             'id': users.length != 0 ? users[users.length - 1].id + 1 : 1,
             'firstName': req.body.firstName,
             'lastName': req.body.lastName,
             'email': req.body.email,
-            'password': req.body.password
+            'password': bcryptjs.hashSync(req.body.password, 10)
         }
         users.push(newUser);
         fs.writeFileSync(usersPath, JSON.stringify(users, null, ' '));
-        res.redirect('/users/')
+        res.redirect('/users/login')
     }
 }
 
