@@ -1,9 +1,10 @@
 [
  {
-  "id": 4,
-  "firstName": "juan",
-  "lastName": "gomez",
-  "email": "juan.gomez@gmail.com",
-  "password": "$2a$10$7i9IU7raX5IkgVC9Ca4dZuJI0EgRJX.ZUtgzuJZRMJcW7ud0FbXIG"
+  "id": 1,
+  "firstName": "Carlos",
+  "lastName": "Sanchez",
+  "email": "carlos.sanchez@gmail.com",
+  "password": "$2a$10$n.mkZj/CTBNQhEbZ7zHYJ.c3YFpFs0Gbciva7Y/llQOE2/erZtQIe",
+  "avatar": "default-avatar1684861054628 - .png"
  }
 ]

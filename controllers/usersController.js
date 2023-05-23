@@ -8,7 +8,8 @@ let loggedUser;
 let checkUser = function (field, text) {
     let check = users.find(user => user[field] == text);
     return check;
-}
+};
+const { validationResult } = require('express-validator');
 
 
 const usersController = {
@@ -38,15 +39,23 @@ const usersController = {
     },
 
     processRegister: function(req, res){
+        const validateRegister = validationResult(req);
+        if(validateRegister.errors.length > 0) {
+            return res.render('../views/registerForm.ejs', { 
+                errors: validateRegister.mapped(),
+                dataOnHold: req.body   
+            })
+        }
         if(checkUser('email', req.body.email)){
-            return res.send('Ya hay otro usuario registrado con dicho mail')
+            return res.send('Ya hay otro usuario registrado con dicho mail');
         }
         let newUser = {
             'id': users.length != 0 ? users[users.length - 1].id + 1 : 1,
             'firstName': req.body.firstName,
             'lastName': req.body.lastName,
             'email': req.body.email,
-            'password': bcryptjs.hashSync(req.body.password, 10)
+            'password': bcryptjs.hashSync(req.body.password, 10),
+            'avatar': req.file.filename
         }
         users.push(newUser);
         fs.writeFileSync(usersPath, JSON.stringify(users, null, ' '));
