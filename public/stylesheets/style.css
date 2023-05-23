@@ -6,3 +6,20 @@ body {
 a {
   color: #00B7FF;
 }
+
+.main-footer {
+  width: 100%;
+}
+
+.main-footer article {
+  width: 100%;
+}
+
+.main-footer h2{
+  font-size: 0.8rem;
+  font-weight: bold;
+}
+
+.main-footer p{
+  font-size: 0.8rem;
+}

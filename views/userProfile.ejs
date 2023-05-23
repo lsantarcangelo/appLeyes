@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="es">
+<!-- Head -->
+<%- include('partials/head', {title: 'Perfil de Usuario'}) %>
+	<body>
+		<h1>Leyes CABA</h1>
+		<!-- header -->
+		<%- include('partials/headerNavbar') %>
+		<!-- /header -->
+		<div class="card" style="width: 18rem;">
+			<img src="" class="card-img-top" alt="">
+			<div class="card-body">
+				<h4>Nombre:<%- ' ' + user.firstName + ' ' + user.lastName %></h4>
+				<p class="card-text">Email: <%- user.email %></p>
+			</div>
+		</div>
+		<!-- footer -->
+		<%- include('partials/footer') %>
+		<!-- /footer -->
+  </body>
+</html>

@@ -13,5 +13,7 @@ router.post('/login', usersController.processLogin);
 router.get('/register', usersController.register);
 router.post('/register', usersController.processRegister);
 
+//Profile
+router.get('/profile/:id/', usersController.profile);
 
 module.exports = router;

@@ -17,7 +17,7 @@ const usersController = {
     },
 
     processLogin: function(req, res) {
-        for (let i = 0; i< users.length; i++) {
+        for (let i = 0; i < users.length; i++) {
             if (users[i].email == req.body.email && bcryptjs.compareSync(req.body.password, users[i].password)) {
                 loggedUser = users[i];
                 break;
@@ -29,7 +29,8 @@ const usersController = {
             ]})
         }
         req.session.loggedUser = loggedUser;
-        res.send('Logueo exitoso')
+        userId = loggedUser.id;
+        res.redirect('/users/profile/:userId')
     },
 
     register: function(req, res) {
@@ -50,6 +51,11 @@ const usersController = {
         users.push(newUser);
         fs.writeFileSync(usersPath, JSON.stringify(users, null, ' '));
         res.redirect('/users/login')
+    },
+
+    profile: function(req, res) {
+        let user = req.session.loggedUser;
+        res.render('../views/userProfile.ejs', {user: user})
     }
 }
 
