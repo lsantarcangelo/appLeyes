@@ -21,6 +21,13 @@ const validations = [
     })
 ];
 
+const validateLogin = [
+    check('email')
+        .notEmpty().withMessage('Debe ingresar su correo electrónico').bail()
+        .isEmail().withMessage('Debe ingresar un formato válido de correo'),
+        check('password').notEmpty().withMessage('Debe ingresar una contraseña')
+];
+
 // Configuracion Multer
 const multer = require('multer');
 const storage = multer.diskStorage({
@@ -39,13 +46,16 @@ const upload = multer({ storage });
 
 //Login
 router.get('/login', usersController.login);
-router.post('/login', usersController.processLogin);
+router.post('/login', validateLogin, usersController.processLogin);
 
 //Register
 router.get('/register', usersController.register);
 router.post('/register', upload.single('avatar'), validations, usersController.processRegister);
 
 //Profile
-router.get('/profile/:id/', usersController.profile);
+router.get('/profile/', usersController.profile);
+
+//Logout
+router.get('/logout', usersController.logout);
 
 module.exports = router;

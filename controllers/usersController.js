@@ -18,6 +18,12 @@ const usersController = {
     },
 
     processLogin: function(req, res) {
+        const validateLogin = validationResult(req);
+        if(validateLogin.errors.length > 0) {
+            return res.render('../views/loginForm.ejs', {
+                errors: validateLogin.mapped()
+            })
+        }
         for (let i = 0; i < users.length; i++) {
             if (users[i].email == req.body.email && bcryptjs.compareSync(req.body.password, users[i].password)) {
                 loggedUser = users[i];
@@ -25,13 +31,18 @@ const usersController = {
             }
         }
         if (loggedUser == undefined) {
-            return res.render('../views/loginForm.ejs', {errors: [
-                {msg: 'Credenciales Inválidas'}
-            ]})
+            return res.render('../views/loginForm.ejs', {errors: {
+                password: {msg: 'Credenciales Inválidas'}
+            }})
         }
+        delete loggedUser.password;
         req.session.loggedUser = loggedUser;
-        userId = loggedUser.id;
-        res.redirect('/users/profile/:userId')
+        res.redirect('/users/profile/')
+    },
+
+    logout: function(req, res) {
+        delete req.session.loggedUser;
+        return res.redirect('/')
     },
 
     register: function(req, res) {
@@ -63,8 +74,7 @@ const usersController = {
     },
 
     profile: function(req, res) {
-        let user = req.session.loggedUser;
-        res.render('../views/userProfile.ejs', {user: user})
+        res.render('../views/userProfile.ejs', {user: req.session.loggedUser})
     }
 }
 

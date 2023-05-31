@@ -17,14 +17,19 @@ const storage = multer.diskStorage({
 });
 const upload = multer({ storage });
 
-//Listar Anexos
+//Listar Normas //
 router.get('/list', leyesController.list);
 
-//Cargar un Anexo
+//Cargar una Norma //
 router.get('/create', leyesController.create);
 router.post('/create', upload.single('norm'), leyesController.store);
 
-// Detalle de un Anexo // 
+// Detalle de una Norma // 
 router.get('/detail/:id/', leyesController.detail);
+
+// Buscar Normas //
+router.get('/search', leyesController.search);
+router.post('/search', leyesController.searchResult);
+
 
 module.exports = router

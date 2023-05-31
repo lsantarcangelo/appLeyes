@@ -6,5 +6,13 @@
   "email": "carlos.sanchez@gmail.com",
   "password": "$2a$10$n.mkZj/CTBNQhEbZ7zHYJ.c3YFpFs0Gbciva7Y/llQOE2/erZtQIe",
   "avatar": "default-avatar1684861054628 - .png"
+ },
+ {
+  "id": 2,
+  "firstName": "Leandro",
+  "lastName": "Santarcangelo",
+  "email": "lsantarcangelo@yahoo.com.ar",
+  "password": "$2a$10$JjWQL2T.obPOLW6l5v.xOeX47.DB0VL0peURjoDYYurE20tEeSKvm",
+  "avatar": "default-avatar1685558311635 - .png"
  }
 ]

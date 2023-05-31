@@ -4,14 +4,9 @@ const leyesPath = path.join(__dirname, '../data/leyesData.json');
 const leyes = JSON.parse(fs.readFileSync(leyesPath, 'utf-8'));
 
 const leyesController = {
-    list: function(req, res) {
-        res.render('../views/leyesList.ejs', {leyes})
-    },
-
     create: function(req, res) {
         res.render('../views/createForm.ejs')
     },
-
     store: function(req, res) {
         let newLey = {
             "id": leyes == '' ? 1 : leyes[leyes.length - 1].id + 1,
@@ -25,12 +20,27 @@ const leyesController = {
         fs.writeFileSync(leyesPath, JSON.stringify(leyes, null, ' '));
         res.redirect('/')
     },
-
+    list: function(req, res) {
+        res.render('../views/leyesList.ejs', {leyes})
+    },
+    search: function(req, res) {
+        res.render('../views/searchForm.ejs', { data: [] });
+    },
+    searchResult: function(req, res) {
+        let filteredData = leyes.filter(element => 
+            element.type == req.body.type || 
+            element.year == req.body.year ||
+            element.number == req.body.number ||
+            element.status == req.body.status);
+        console.log(filteredData);
+        res.render('../views/searchForm.ejs', { data: filteredData })
+    },
     detail: function(req, res) {
         const ley = leyes.find(element => element.id == req.params.id)
         const file = path.join(__dirname, '../public/files/'+`${ley.norm}`)
-        res.sendFile(file)
+        res.sendFile(file);
     }
 }
+
 
 module.exports = leyesController;
