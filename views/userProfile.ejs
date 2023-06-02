@@ -3,15 +3,16 @@
 <!-- Head -->
 <%- include('partials/head', {title: 'Perfil de Usuario'}) %>
 	<body>
-		<h1>Leyes CABA</h1>
 		<!-- header -->
 		<%- include('partials/headerNavbar') %>
 		<!-- /header -->
-		<div class="card" style="width: 18rem;">
-			<img src="" class="card-img-top" alt="">
-			<div class="card-body">
-				<h4>Nombre:<%- ' ' + user.firstName + ' ' + user.lastName %></h4>
-				<p class="card-text">Email: <%- user.email %></p>
+		<div class="container background-wrapper">
+			<div class="card" style="width: 18rem; margin: auto; margin-top: 1.5rem; margin-bottom: 1.5rem;">
+				<img src="/images/users/<%= user.avatar %>" class="card-img-top" alt="">
+				<div class="card-body" style="background: linear-gradient(#616060, #8c8c7c);">
+					<h4>Nombre:<%- ' ' + user.firstName + ' ' + user.lastName %></h4>
+					<p class="card-text">Email: <%- user.email %></p>
+				</div>
 			</div>
 		</div>
 		<!-- footer -->

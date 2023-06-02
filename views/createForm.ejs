@@ -3,7 +3,6 @@
 <!-- Head -->
 <%- include('partials/head', {title: 'Crear'}) %>
 <body>
-    <h1>Leyes CABA</h1>
     <!-- header -->
     <%- include('partials/headerNavbar') %>
     <!-- /header -->
@@ -29,9 +28,11 @@
                         <label for="type" class="form-label">Tipo de Norma:</label>
                         <select name="type" id="type" class="form-input">
                             <option value="">Elegir opción</option>
-                            <option value="todos">Todos</option>
                             <option value="ley-ciudad">Ley Ciudad</option>
                             <option value="ordenanza">Ordenanza</option>
+                            <option value="dictamen">Dictamen</option>
+                            <option value="resolucion">Resolución</option>
+                            <option value="disposicion">Disposición</option>
                         </select>
                     </div>
                     <div class="col-12 col-md-6">

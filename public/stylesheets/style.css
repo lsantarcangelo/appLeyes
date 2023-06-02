@@ -1,10 +1,45 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 body {
-  padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+
 }
 
 a {
   color: #00B7FF;
+}
+
+.jumbotron {
+  background-color: #616060;
+}
+
+/* .background-wrapper {
+  background-image: url("../images/main/law-icon.jpg");
+  background-repeat: no-repeat;
+} */
+
+.background-wrapper .card {
+  margin: 2rem;
+}
+
+.form-wrapper {
+  padding: 1rem 4rem;
+}
+
+.navbar {
+  background-color: #616060;
+  margin: 0;
+  padding-bottom: 1rem;
+  padding: 0;
+}
+
+#navbarNav .nav-item {
+  margin: 0 0.5rem;
+  font-size: 1.2rem;
 }
 
 .main-footer {

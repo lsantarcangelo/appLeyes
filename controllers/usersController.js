@@ -35,7 +35,7 @@ const usersController = {
                 password: {msg: 'Credenciales Inválidas'}
             }})
         }
-        delete loggedUser.password;
+        //delete loggedUser.password;
         req.session.loggedUser = loggedUser;
         res.redirect('/users/profile/')
     },
