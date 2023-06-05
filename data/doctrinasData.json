@@ -1,0 +1,11 @@
+[
+ {
+  "id": 1,
+  "type": "dictamen",
+  "number": "112233",
+  "year": "2023",
+  "subject": "Prueba",
+  "status": "vigente",
+  "norm": "Doctrina-1122331685964243054 - .txt"
+ }
+]

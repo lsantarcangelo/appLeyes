@@ -8,7 +8,8 @@ const userLoggedMiddleware =  require('./middlewares/userLoggedMiddleware');
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
-var leyesRouter = require('./routes/leyesRouter')
+var leyesRouter = require('./routes/leyesRouter');
+var doctrinasRouter = require('./routes/doctrinasRouter');
 
 var app = express();
 
@@ -33,6 +34,7 @@ app.use(userLoggedMiddleware);
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/leyes', leyesRouter);
+app.use('/doctrinas', doctrinasRouter);
 
 // catch 404 and forward to error handler
 //app.use(function(req, res, next) {

@@ -1,20 +1,20 @@
 <!DOCTYPE html>
 <html lang="es">
 <!-- Head -->
-<%- include('partials/head', {title: 'Crear'}) %>
+<%- include('../partials/head', {title: 'Cargar Doctrinas'}) %>
 <body>
     <!-- header -->
-    <%- include('partials/headerNavbar') %>
+    <%- include('../partials/headerNavbar') %>
     <!-- /header -->
 
     <div class="container form-wrapper">
         <div class="row">
             <div class="col-12">
-                <h2 class="form-title">Formulario de carga de leyes</h2>
+                <h2 class="form-title">Formulario de Carga de Doctrinas</h2>
             </div>
         </div>
         <div class="col-12">
-            <form action="/leyes/create" method="POST" enctype="multipart/form-data">
+            <form action="/doctrinas/create" method="POST" enctype="multipart/form-data">
                 <div class="row leyes-detail">
                     <div class="form-group col-12 col-md-6">
                         <label for="number" class="form-label">Número:</label>
@@ -23,6 +23,10 @@
                     <div class="form-group col-12 col-md-6">
                         <label for="year" class="form-label">Año:</label>
 						<input type="text" id="year" name="year" class="form-control">
+                    </div>
+                    <div class="form-group col-12 col-md-6">
+                        <label for="subject" class="form-label">Temática:</label>
+						<input type="text" id="subject" name="subject" class="form-control">
                     </div>
                     <div class="form-group col-12 col-md-6">
                         <label for="type" class="form-label">Tipo de Norma:</label>
@@ -44,7 +48,7 @@
                         </select>
                     </div>
                     <div class="form-group col-12">
-                        <label for="norm" class="form-label">Adjuntar Norma</label>
+                        <label for="norm" class="form-label">Adjuntar Doctrina</label>
                         <input type="file" class="form-control" name="norm">
                     </div>
                     <div class="form-group col-12">
@@ -58,7 +62,7 @@
     </div>
 
     <!-- footer -->
-    <%- include('partials/footer') %>
+    <%- include('../partials/footer') %>
     <!-- /footer -->
 </body>
 </html>
