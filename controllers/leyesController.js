@@ -27,12 +27,15 @@ const leyesController = {
         res.render('../views/leyes/searchForm.ejs', { data: [] });
     },
     searchResult: function(req, res) {
-        let filteredData = leyes.filter(element => 
-            element.type == req.body.type || 
-            element.year == req.body.year ||
-            element.number == req.body.number ||
-            element.status == req.body.status);
-        console.log(filteredData);
+        const { type, number, year, status, norm } = req.query;
+        const filteredData = leyes.filter(element => {
+            return (
+                (!type || element.type.toLowerCase().includes(type.toLowerCase())) &&
+                (!number || element.number.toLowerCase().includes(number.toLowerCase())) &&
+                (!year || element.year.toLowerCase().includes(year.toLowerCase())) &&
+                (!status || element.status.toLowerCase().includes(status.toLowerCase())) &&
+                (!norm || element.norm.toLowerCase().includes(norm.toLowerCase()))
+              )});
         res.render('../views/leyes/searchForm.ejs', { data: filteredData })
     },
     detail: function(req, res) {

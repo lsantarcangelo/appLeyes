@@ -29,7 +29,7 @@ router.get('/detail/:id/', doctrinasController.detail);
 
 // Buscar Normas //
 router.get('/search', doctrinasController.search);
-router.post('/search', doctrinasController.searchResult);
+router.get('/search/result', doctrinasController.searchResult);
 
 
 module.exports = router

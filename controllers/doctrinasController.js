@@ -9,7 +9,7 @@ const doctrinasController = {
     },
     store: function(req, res) {
         let newDoctrina = {
-            "id": doctrinas == '' ? 1 : doctrinas[leyes.length - 1].id + 1,
+            "id": doctrinas == '' ? 1 : doctrinas[doctrinas.length - 1].id + 1,
             "type": req.body.type,
             "number": req.body.number,
             "year": req.body.year,
@@ -28,13 +28,15 @@ const doctrinasController = {
         res.render('../views/doctrinas/searchFormDoctrinas.ejs', { data: [] });
     },
     searchResult: function(req, res) {
-        let filteredData = doctrinas.filter(element => 
-            element.type == req.body.type || 
-            element.year == req.body.year ||
-            element.subject == req.body.subject ||
-            element.number == req.body.number ||
-            element.status == req.body.status);
-        console.log(filteredData);
+        const { type, number, year, subject, status } = req.query;
+        const filteredData = doctrinas.filter(element => {
+            return (
+                (!type || element.type.toLowerCase().includes(type.toLowerCase())) && 
+                (!number || element.number.toLowerCase().includes(number.toLowerCase())) &&
+                (!year || element.year.toLowerCase().includes(year.toLowerCase())) &&
+                (!subject || element.subject.toLowerCase().includes(subject.toLowerCase())) &&
+                (!status || element.status.toLowerCase().includes(status.toLowerCase()))
+            )});
         res.render('../views/doctrinas/searchFormDoctrinas.ejs', { data: filteredData })
     },
     detail: function(req, res) {
