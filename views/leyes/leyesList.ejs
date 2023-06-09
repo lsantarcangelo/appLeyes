@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="es">
 <!-- Head -->
-<%- include('partials/head', {title: 'Listado'}) %>
+<%- include('../partials/head', {title: 'Listado'}) %>
 	<body>
 		<!-- header -->
-		<%- include('partials/headerNavbar') %>
+		<%- include('../partials/headerNavbar') %>
 		<!-- /header -->
 		<% leyes.forEach(element => { %>
 			<ul>
@@ -13,7 +13,7 @@
 			</ul>
 		<% }) %>
 		<!-- footer -->
-		<%- include('partials/footer') %>
+		<%- include('../partials/footer') %>
 		<!-- /footer -->
   </body>
 </html>

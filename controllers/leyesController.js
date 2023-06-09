@@ -5,7 +5,7 @@ const leyes = JSON.parse(fs.readFileSync(leyesPath, 'utf-8'));
 
 const leyesController = {
     create: function(req, res) {
-        res.render('../views/createForm.ejs')
+        res.render('../views/leyes/createForm.ejs')
     },
     store: function(req, res) {
         let newLey = {
@@ -21,10 +21,10 @@ const leyesController = {
         res.redirect('/')
     },
     list: function(req, res) {
-        res.render('../views/leyesList.ejs', {leyes})
+        res.render('../views/leyes/leyesList.ejs', {leyes})
     },
     search: function(req, res) {
-        res.render('../views/searchForm.ejs', { data: [] });
+        res.render('../views/leyes/searchForm.ejs', { data: [] });
     },
     searchResult: function(req, res) {
         let filteredData = leyes.filter(element => 
@@ -33,7 +33,7 @@ const leyesController = {
             element.number == req.body.number ||
             element.status == req.body.status);
         console.log(filteredData);
-        res.render('../views/searchForm.ejs', { data: filteredData })
+        res.render('../views/leyes/searchForm.ejs', { data: filteredData })
     },
     detail: function(req, res) {
         const ley = leyes.find(element => element.id == req.params.id)

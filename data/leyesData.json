@@ -22,5 +22,13 @@
   "year": "2017",
   "status": "vigente",
   "norm": "Ley Ciudad-59471685520119970 - .pdf"
+ },
+ {
+  "id": 4,
+  "type": "ley-ciudad",
+  "number": "1217",
+  "year": "1980",
+  "status": "no-vigente",
+  "norm": "1217-no vigente1686061451594 - .txt"
  }
 ]
