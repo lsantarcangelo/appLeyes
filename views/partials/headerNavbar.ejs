@@ -13,22 +13,30 @@
             <li class="nav-item">
               <a class="nav-link" href="/">Inicio</a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link" href="/leyes/search">Buscar Norma</a>
+            <li class="nav-item dropdown">
+              <a class="nav-link inactive" data-toggle="dropdown" href="#" role="button" aria-expanded="false">Leyes</a>
+              <div class="dropdown-menu">
+                <a class="dropdown-item" href="/leyes/search">Buscar Ley</a>
+                <a class="dropdown-item" href="/leyes/create">Cargar Ley</a>
+              </div>
             </li>
-            <li class="nav-item">
-              <a class="nav-link" href="/doctrinas/search">Buscar Doctrina</a>
+            <li class="nav-item dropdown">
+              <a class="nav-link" data-toggle="dropdown" href="#" role="button" aria-expanded="false">Doctrinas</a>
+              <div class="dropdown-menu">
+                <a class="dropdown-item" href="/doctrinas/search">Buscar Doctrina</a>
+                <a class="dropdown-item" href="/doctrinas/create">Cargar Doctrina</a>
+              </div>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link" data-toggle="dropdown" href="#" role="button" aria-expanded="false">Escritos</a>
+              <div class="dropdown-menu">
+                <a class="dropdown-item" href="/escritos/search">Buscar Escrito</a>
+                <a class="dropdown-item" href="/escritos/create">Cargar Escrito</a>
+              </div>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="/leyes/list">Explorar</a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link" href="/leyes/create">Cargar Norma</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="/doctrinas/create">Cargar Doctrina</a>
-            </li>
-
             <li class="nav-item">
               <a class="nav-link" href="/users/login">Login</a>
             </li>

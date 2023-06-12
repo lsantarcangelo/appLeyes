@@ -6,10 +6,11 @@ var logger = require('morgan');
 const session = require('express-session');
 const userLoggedMiddleware =  require('./middlewares/userLoggedMiddleware');
 
-var indexRouter = require('./routes/index');
-var usersRouter = require('./routes/users');
-var leyesRouter = require('./routes/leyesRouter');
-var doctrinasRouter = require('./routes/doctrinasRouter');
+const indexRouter = require('./routes/index');
+const usersRouter = require('./routes/users');
+const leyesRouter = require('./routes/leyesRouter');
+const doctrinasRouter = require('./routes/doctrinasRouter');
+const escritosRouter = require('./routes/escritosRouter');
 
 var app = express();
 
@@ -35,6 +36,7 @@ app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/leyes', leyesRouter);
 app.use('/doctrinas', doctrinasRouter);
+app.use('/escritos', escritosRouter);
 
 // catch 404 and forward to error handler
 //app.use(function(req, res, next) {
