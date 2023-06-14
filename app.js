@@ -4,7 +4,7 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 const session = require('express-session');
-const userLoggedMiddleware =  require('./middlewares/userLoggedMiddleware');
+const userLoggedMiddleware = require('./middlewares/userLoggedMiddleware');
 
 const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
@@ -23,14 +23,14 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
-app.use(session(
-  {
+app.use(session({
     secret: 'secret',
     resave: false,
     saveUninitialized: false
-  }
-  ));
+}));
+
 app.use(userLoggedMiddleware);
+
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
@@ -38,10 +38,6 @@ app.use('/leyes', leyesRouter);
 app.use('/doctrinas', doctrinasRouter);
 app.use('/escritos', escritosRouter);
 
-// catch 404 and forward to error handler
-//app.use(function(req, res, next) {
-//  next(createError(404));
-//});
 
 // error handler
 app.use(function(err, req, res, next) {

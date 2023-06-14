@@ -4,7 +4,7 @@ const usersPath = path.join(__dirname, '../data/usersData.json');
 const usersJson = fs.readFileSync(usersPath, 'utf-8');
 const users = (usersJson != "") ? JSON.parse(usersJson) : [];
 const bcryptjs = require('bcryptjs');
-let loggedUser;
+let userLogged;
 let checkUser = function (field, text) {
     let check = users.find(user => user[field] == text);
     return check;
@@ -26,17 +26,17 @@ const usersController = {
         }
         for (let i = 0; i < users.length; i++) {
             if (users[i].email == req.body.email && bcryptjs.compareSync(req.body.password, users[i].password)) {
-                loggedUser = users[i];
+                userLogged = users[i];
                 break;
             }
         }
-        if (loggedUser == undefined) {
+        if (userLogged == undefined) {
             return res.render('../views/loginForm.ejs', {errors: {
                 password: {msg: 'Credenciales Inválidas'}
             }})
         }
         //delete loggedUser.password;
-        req.session.loggedUser = loggedUser;
+        req.session.loggedUser = userLogged;
         res.redirect('/users/profile/')
     },
 

@@ -3,6 +3,7 @@ var router = express.Router();
 const path = require('path');
 const usersController = require('../controllers/usersController');
 const authMiddleware = require('../middlewares/authMiddleware');
+const guestMiddleware = require('../middlewares/guestMiddleware');
 const { check } = require('express-validator');
 
 const validations = [
@@ -45,11 +46,11 @@ const upload = multer({ storage });
 /* Users Routes */
 
 //Login
-router.get('/login', usersController.login);
+router.get('/login', guestMiddleware, usersController.login);
 router.post('/login', validateLogin, usersController.processLogin);
 
 //Register
-router.get('/register', usersController.register);
+router.get('/register', guestMiddleware, usersController.register);
 router.post('/register', upload.single('avatar'), validations, usersController.processRegister);
 
 //Profile

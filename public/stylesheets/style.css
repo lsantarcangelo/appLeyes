@@ -15,6 +15,7 @@ a {
 
 .jumbotron {
   background-color: #616060;
+  background: linear-gradient(357deg, rgba(2,0,36,1) 0%, rgba(97,96,96,1) 35%, rgba(210,210,210,1) 100%);
 }
 
 .background-wrapper .card {
