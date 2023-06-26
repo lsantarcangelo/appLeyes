@@ -6,12 +6,16 @@
 		<!-- header -->
 		<%- include('../partials/headerNavbar') %>
 		<!-- /header -->
-		<% leyes.forEach(element => { %>
-			<ul>
-				<li>Nombre: <%= element.type %> - <%= element.number %> - <%= element.year %></li>
-				<a href="/leyes/detail/<%= element.id %>">Ver Norma</a>
-			</ul>
-		<% }) %>
+		<div class="card">
+			<div class="card-body">
+				<% leyes.forEach(element => { %>
+					<ul>
+						<li>Nombre: <%= element.type %> - <%= element.number %> - <%= element.year %></li>
+						<a href="/leyes/detail/<%= element.id %>">Ver Norma</a>
+					</ul>
+				<% }) %>
+			</div>
+		</div>
 		<!-- footer -->
 		<%- include('../partials/footer') %>
 		<!-- /footer -->

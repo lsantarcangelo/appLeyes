@@ -66,7 +66,8 @@ const usersController = {
             'lastName': req.body.lastName,
             'email': req.body.email,
             'password': bcryptjs.hashSync(req.body.password, 10),
-            'avatar': req.file.filename
+            'avatar': req.file.filename,
+            'admin': 0
         }
         users.push(newUser);
         fs.writeFileSync(usersPath, JSON.stringify(users, null, ' '));
