@@ -38,6 +38,13 @@ a {
   font-size: 1.2rem;
 }
 
+.leyesList {
+  width: 300px;
+  min-height: 400px;
+  margin: 0 auto;
+  padding-top: 15px;
+}
+
 .main-footer {
   width: 100%;
 }
