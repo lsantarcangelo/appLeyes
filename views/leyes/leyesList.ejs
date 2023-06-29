@@ -11,10 +11,17 @@
 				<div class="leyesList">
 					<% leyes.forEach(element => { %>
 						<ul>
-							<li>Nombre: <%= element.type %> - <%= element.number %> - <%= element.year %></li>
-							<a href="/leyes/detail/<%= element.id %>">Ver Norma</a>
+							<li>Nombre: <%= element.type %> - <%= element.number %> - <%= element.year %></li>	
+							<% if (Array.isArray(element.norm)) { %>
+								<% element.norm.forEach(file => { %>
+									<li><a href="../files/<%= file %>"><%= file %></a></li>
+								<% }) %>
+							<% } else { %>
+								<li><a href="../files/<%= element.norm %>"><%= element.norm %></a></li>
+								<% } %>
 						</ul>
 					<% }) %>
+					
 				</div>
 			</div>
 		</div>

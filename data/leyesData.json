@@ -30,5 +30,25 @@
   "year": "1980",
   "status": "no-vigente",
   "norm": "1217-no vigente1686061451594 - .txt"
+ },
+ {
+  "id": 5,
+  "type": "ley-ciudad",
+  "number": "8190",
+  "year": "2023",
+  "status": "vigente",
+  "norm": "A1687874798454 - .txt"
+ },
+ {
+  "id": 6,
+  "type": "ley-ciudad",
+  "number": "8191",
+  "year": "2023",
+  "status": "vigente",
+  "norm": [
+   "C.txt",
+   "B.txt",
+   "A.txt"
+  ]
  }
 ]

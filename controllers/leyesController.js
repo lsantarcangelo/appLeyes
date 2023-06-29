@@ -8,19 +8,21 @@ const leyesController = {
         res.render('../views/leyes/createForm.ejs')
     },
     store: function(req, res) {
+        let filenames = req.files.map(file => file.filename);
         let newLey = {
             "id": leyes == '' ? 1 : leyes[leyes.length - 1].id + 1,
             "type": req.body.type,
             "number": req.body.number,
             "year": req.body.year,
             "status": req.body.status,
-            "norm": req.file.filename
+            "norm": filenames
         };
         leyes.push(newLey);
         fs.writeFileSync(leyesPath, JSON.stringify(leyes, null, ' '));
         res.redirect('/')
     },
     list: function(req, res) {
+        console.log(leyes)
         res.render('../views/leyes/leyesList.ejs', {leyes})
     },
     search: function(req, res) {

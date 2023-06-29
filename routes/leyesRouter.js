@@ -9,10 +9,10 @@ const storage = multer.diskStorage({
     destination: (req, file, cb) => {
         cb(null, path.join(__dirname, '../public/files'));
     },
-    filename: (req, file, cb) => {
-        const fileNameNoExtension = path.basename(file.originalname, path.extname(file.originalname));
-        const newFileName = fileNameNoExtension + Date.now() + ' - ' + path.extname(file.originalname);
-        cb(null, newFileName);
+    filename: (req, files, cb) => {
+        //const fileNameNoExtension = path.basename(files.originalname, path.extname(files.originalname));
+        //const newFileName = fileNameNoExtension + Date.now() + ' - ' + path.extname(files.originalname);
+        cb(null, files.originalname);
     }
 });
 const upload = multer({ storage });
@@ -22,7 +22,7 @@ router.get('/list', leyesController.list);
 
 //Cargar una Norma //
 router.get('/create', leyesController.create);
-router.post('/create', upload.single('norm'), leyesController.store);
+router.post('/create', upload.array('norms', 10), leyesController.store);
 
 // Detalle de una Norma // 
 router.get('/detail/:id/', leyesController.detail);
