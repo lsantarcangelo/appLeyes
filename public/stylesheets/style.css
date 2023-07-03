@@ -13,7 +13,7 @@ a {
   color: #00B7FF;
 }
 
-.jumbotron, .card-body {
+.jumbotron {
   background-color: #616060;
   background: linear-gradient(357deg, rgba(46,46,46,255) 0%, rgba(97,96,96,1) 35%, rgba(210,210,210,1) 100%);
 }
@@ -43,6 +43,10 @@ a {
   min-height: 400px;
   margin: 0 auto;
   padding-top: 15px;
+}
+
+li.adjuntos {
+  list-style: none;
 }
 
 .main-footer {

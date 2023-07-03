@@ -4,8 +4,10 @@ function userLoggedMiddleware(req, res, next) {
     if(req.session.loggedUser) {
         res.locals.isLogged = true;
         res.locals.loggedUser = req.session.loggedUser;
+        
     }
     next();
+    
 }
 
 module.exports = userLoggedMiddleware;

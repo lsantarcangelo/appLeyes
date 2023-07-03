@@ -14,14 +14,13 @@
 							<li>Nombre: <%= element.type %> - <%= element.number %> - <%= element.year %></li>	
 							<% if (Array.isArray(element.norm)) { %>
 								<% element.norm.forEach(file => { %>
-									<li><a href="../files/<%= file %>"><%= file %></a></li>
+									<li class="adjuntos"><a href="../files/leyes/<%= file %>"><%= file %></a></li>
 								<% }) %>
 							<% } else { %>
-								<li><a href="../files/<%= element.norm %>"><%= element.norm %></a></li>
-								<% } %>
+								<li class="adjuntos"><a href="../files/leyes/<%= element.norm %>"><%= element.norm %></a></li>
+							<% } %>
 						</ul>
 					<% }) %>
-					
 				</div>
 			</div>
 		</div>

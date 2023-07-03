@@ -7,7 +7,7 @@ const path = require('path');
 const multer = require('multer');
 const storage = multer.diskStorage({
     destination: (req, file, cb) => {
-        cb(null, path.join(__dirname, '../public/files'));
+        cb(null, path.join(__dirname, '../public/files/leyes'));
     },
     filename: (req, files, cb) => {
         //const fileNameNoExtension = path.basename(files.originalname, path.extname(files.originalname));
@@ -25,7 +25,7 @@ router.get('/create', leyesController.create);
 router.post('/create', upload.array('norms', 10), leyesController.store);
 
 // Detalle de una Norma // 
-router.get('/detail/:id/', leyesController.detail);
+
 
 // Buscar Normas //
 router.get('/search', leyesController.search);

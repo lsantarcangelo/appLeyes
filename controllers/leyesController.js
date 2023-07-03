@@ -39,11 +39,6 @@ const leyesController = {
                 (!norm || element.norm.toLowerCase().includes(norm.toLowerCase()))
               )});
         res.render('../views/leyes/searchForm.ejs', { data: filteredData })
-    },
-    detail: function(req, res) {
-        const ley = leyes.find(element => element.id == req.params.id);
-        const file = path.join(__dirname, '../public/files/'+`${ley.norm}`);
-        res.sendFile(file);
     }
 }
 

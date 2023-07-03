@@ -46,7 +46,13 @@
 					<% data.forEach(element => { %>
 						<ul>
 							<li>Nombre: <%= element.type %> - <%= element.number %> - <%= element.year %></li>
-							<a href="/leyes/detail/<%= element.id %>">Ver Norma</a>
+							<% if (Array.isArray(element.norm)) { %>
+								<% element.norm.forEach(file => { %>
+									<li class="adjuntos"><a href="../../files/leyes/<%= file %>"><%= file %></a></li>
+								<% }) %>
+							<% } else { %>
+									<li class="adjuntos"><a href="../../files/leyes/<%= element.norm %>"><%= element.norm %></a></li>
+							<% } %>
 						</ul>
 					<% }) %>
 				<% } %>
