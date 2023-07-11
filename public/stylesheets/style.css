@@ -18,6 +18,10 @@ a {
   background: linear-gradient(357deg, rgba(46,46,46,255) 0%, rgba(97,96,96,1) 35%, rgba(210,210,210,1) 100%);
 }
 
+.background-wrapper {
+  min-height: 500px;
+}
+
 .background-wrapper .card {
   margin: 2rem;
 }
@@ -43,6 +47,14 @@ a {
   min-height: 400px;
   margin: 0 auto;
   padding-top: 15px;
+}
+
+.detail-group {
+  margin-top: 2rem;
+}
+
+.detail-group h2 {
+  font-size: 1.4rem;
 }
 
 li.adjuntos {

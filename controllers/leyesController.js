@@ -21,6 +21,29 @@ const leyesController = {
         fs.writeFileSync(leyesPath, JSON.stringify(leyes, null, ' '));
         res.redirect('/')
     },
+    edit: function(req, res) {
+        let ley = leyes.find(element => element.id == req.params.id);
+        res.render('../views/leyes/leyesEditForm.ejs', {ley});
+    },
+    update: function(req, res) {
+        let leyMod = {
+            'id': req.params.id,
+            'type': req.body.type,
+            'number': req.body.number,
+            'year': req.body.year,
+            'status': req.body.status,
+            'norm': req.file.filename 
+        };
+        let leyUpdated = leyes.map( element => {
+            if (element.id == leyMod.id) {
+                return element = leyMod
+            } else {
+                return element
+            }
+        });
+        fs.writeFileSync(leyesPath, JSON.stringify(leyUpdated, null, ''));
+		res.redirect(`/detail/:${req.params.id}/`);
+    },
     list: function(req, res) {
         console.log(leyes)
         res.render('../views/leyes/leyesList.ejs', {leyes})
@@ -38,7 +61,11 @@ const leyesController = {
                 (!status || element.status.toLowerCase().includes(status.toLowerCase())) &&
                 (!norm || element.norm.toLowerCase().includes(norm.toLowerCase()))
               )});
-        res.render('../views/leyes/searchForm.ejs', { data: filteredData })
+        res.render('../views/leyes/searchForm2.ejs', { data: filteredData })
+    },
+    detail: function(req, res) {
+        let ley = leyes.find(element => element.id == req.params.id)
+        res.render('../views/leyes/leyesDetail.ejs', { ley })
     }
 }
 

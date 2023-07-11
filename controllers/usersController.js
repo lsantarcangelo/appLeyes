@@ -24,20 +24,27 @@ const usersController = {
                 errors: validateLogin.mapped()
             })
         }
+
         for (let i = 0; i < users.length; i++) {
             if (users[i].email == req.body.email && bcryptjs.compareSync(req.body.password, users[i].password)) {
                 userLogged = users[i];
                 break;
             }
         }
+
         if (userLogged == undefined) {
             return res.render('../views/loginForm.ejs', {errors: {
                 password: {msg: 'Credenciales Inválidas'}
             }})
         }
-        //delete loggedUser.password;
+
         req.session.loggedUser = userLogged;
-        res.redirect('/users/profile/')
+
+/*         if(req.body.remember){
+            res.cookie('rememberUser', req.body.email, { maxAge: 1000 * 60 * 2})
+        }
+ */
+        return res.redirect('/users/profile/')
     },
 
     logout: function(req, res) {

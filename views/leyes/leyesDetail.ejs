@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="es">
+<!-- Head -->
+<%- include('../partials/head', {title: 'Detalle'}) %>
+	<body>
+		<!-- header -->
+		<%- include('../partials/headerNavbar') %>
+		<!-- /header -->
+		<div class="container-fluid background-wrapper">
+			<div class="container detail-group">
+				<div class="row">
+					<div class="col-12">
+						<h2 class="form-title"><%= ley.type %> - <%= ley.number %> - <%= ley.year %></h2>
+					</div>
+				</div>
+				<div class="col-12">
+					<p>Tipo: <%= ley.type %></p>
+					<p>Número: <%= ley.number %></p>
+					<p>Año: <%= ley.year %></p>
+					<% if (Array.isArray(ley.norm)) { %>
+						<% ley.norm.forEach(file => { %>
+							<li class="adjuntos"><a href="../../files/leyes/<%= file %>"><%= file %></a></li>
+						<% }) %>
+					<% } else { %>
+							<li class="adjuntos"><a href="../../files/leyes/<%= ley.norm %>"><%= ley.norm %></a></li>
+					<% } %>
+					<br>
+					<button type="button" class="btn btn-info btn-sm" onclick="history.back()">Volver</button> 
+					<% if (locals.isLogged) { %>
+						<% if (locals.loggedUser.admin == 1) { %>
+							<button type="button" class="btn btn-info btn-sm">Editar</button>
+						<% } %>
+					  <% } %> 
+				</div>	
+			</div>
+		</div>
+		<!-- footer -->
+		<%- include('../partials/footer') %>
+		<!-- /footer -->
+  </body>
+</html>
