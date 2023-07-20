@@ -24,13 +24,12 @@ router.get('/list', leyesController.list);
 router.get('/create', leyesController.create);
 router.post('/create', upload.array('norms', 10), leyesController.store);
 
-// Detalle de una Norma //
-router.get('/detail/:id/', leyesController.detail) 
-
-
 // Buscar Normas //
 router.get('/search', leyesController.search);
 router.get('/search/result', leyesController.searchResult);
+
+// Detalle de una Norma //
+router.get('/detail/:id/', leyesController.detail) 
 
 // Editar una Norma //
 router.get('/edit/:id/', leyesController.edit);

@@ -26,36 +26,39 @@ const leyesController = {
         res.render('../views/leyes/leyesEditForm.ejs', {ley});
     },
     update: function(req, res) {
+        let leyToUpdate = leyes.find(element => element.id == req.params.id);        
         let leyMod = {
             'id': req.params.id,
             'type': req.body.type,
             'number': req.body.number,
             'year': req.body.year,
             'status': req.body.status,
-            'norm': req.file.filename 
+            'norm': req.file == undefined ? leyToUpdate.norm : req.file.filename
         };
         let leyUpdated = leyes.map( element => {
             if (element.id == leyMod.id) {
                 return element = leyMod
             } else {
                 return element
-            }
+            }           
         });
+        console.log(leyUpdated);
         fs.writeFileSync(leyesPath, JSON.stringify(leyUpdated, null, ''));
-		res.redirect(`/detail/:${req.params.id}/`);
+		res.redirect(`/leyes/detail/${req.params.id}/`);
     },
     list: function(req, res) {
         console.log(leyes)
         res.render('../views/leyes/leyesList.ejs', {leyes})
     },
     search: function(req, res) {
-        res.render('../views/leyes/searchForm.ejs', { data: [] });
+        res.render('../views/leyes/searchForm2.ejs', { data: [] });
     },
     searchResult: function(req, res) {
         const { type, number, year, status, norm } = req.query;
+        console.log(type);
         const filteredData = leyes.filter(element => {
             return (
-                (!type || element.type.toLowerCase().includes(type.toLowerCase())) &&
+                (!type || element.type.includes(type)) &&
                 (!number || element.number.toLowerCase().includes(number.toLowerCase())) &&
                 (!year || element.year.toLowerCase().includes(year.toLowerCase())) &&
                 (!status || element.status.toLowerCase().includes(status.toLowerCase())) &&

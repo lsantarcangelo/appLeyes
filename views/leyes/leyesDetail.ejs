@@ -25,12 +25,16 @@
 							<li class="adjuntos"><a href="../../files/leyes/<%= ley.norm %>"><%= ley.norm %></a></li>
 					<% } %>
 					<br>
-					<button type="button" class="btn btn-info btn-sm" onclick="history.back()">Volver</button> 
-					<% if (locals.isLogged) { %>
-						<% if (locals.loggedUser.admin == 1) { %>
-							<button type="button" class="btn btn-info btn-sm">Editar</button>
-						<% } %>
-					  <% } %> 
+					<form action="/leyes/edit/<%= ley.id %>" method="GET">
+						<div class="form-group">
+							<button type="button" class="btn btn-info btn-sm" onclick="history.back()">Volver</button> 
+							<% if (locals.isLogged) { %>
+								<% if (locals.loggedUser.admin == 1) { %>
+									<button type="submit" class="btn btn-info btn-sm edit-button">Editar</button>
+								<% } %>
+							<% } %> 
+						</div>
+					</form>
 				</div>	
 			</div>
 		</div>
